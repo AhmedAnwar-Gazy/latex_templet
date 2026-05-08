@@ -1,0 +1,11 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces The Core ML Algorithms: Factorization Machines vs.\ Industry Alternatives}}{11}{table.caption.14}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Candidate Generation (Filter) Techniques and Implementation}}{12}{table.caption.15}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Collaborative Filtering and Popularity-Based Techniques}}{12}{table.caption.16}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Natural Language Processing (Context) Tooling Selection}}{13}{table.caption.17}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Architecture Comparison: Proposed Stack (Go/Gorse) vs.\ Traditional (Python)}}{18}{table.caption.18}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Evaluation of System Latency (Sub-50ms) During High Concurrency}}{18}{table.caption.19}%
+\addvspace {10\p@ }
