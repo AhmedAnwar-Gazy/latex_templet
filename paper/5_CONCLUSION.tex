@@ -1,0 +1,17 @@
+% ==================== CHAPTER 5 ====================
+\chapter{CONCLUSION AND RECOMMENDATIONS}
+\clearpage
+
+\section{Summary of Findings}
+This project successfully designed and implemented a highly concurrent, ML-driven social media feed architecture. By utilizing Go, Gorse, and Typesense, the bottleneck issues inherent in traditional web frameworks were effectively resolved. Factorization Machines and Bayesian Personalized Ranking proved highly effective in processing sparse user interaction data (from the RecSys \cite{recsys2020} and SNAP \cite{snap2014} datasets) to generate highly personalized feeds.
+
+\section{Conclusion}
+The integration of a robust backend (Go/Typesense) with an intelligent AutoML layer (Gorse) and a reactive frontend (Next.js/React Native) demonstrates that enterprise-grade recommendation systems can be engineered efficiently without massive proprietary clusters. The system meets all objectives, providing scalable content discovery with minimal latency and high predictive accuracy.
+
+\section{Recommendations and Future Work}
+While the current architecture is robust, future iterations of this project could be expanded by:
+\begin{enumerate}
+    \item \textbf{Integrating Graph Neural Networks (GNNs):} Replacing standard Collaborative Filtering with algorithms like LightGCN to better map complex ``friends of friends'' relationships found in the SNAP dataset \cite{snap2014}.
+    \item \textbf{Advanced NLP Summarization:} Before generating vectors for Typesense, integrating an LLM (e.g., Llama 3 or Mistral) to generate high-quality summaries of lengthy posts or threads, improving contextual search accuracy.
+    \item \textbf{Exploration of Hybrid Cloud Vector DBs:} While Typesense is excellent for the current scale, testing the system against cloud-native solutions like Milvus or FAISS (Meta) could provide insights for billion-item scalability.
+\end{enumerate}

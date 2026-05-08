@@ -1,0 +1,24 @@
+% ==================== CHAPTER 1 ====================
+\chapter{INTRODUCTION}
+\clearpage
+
+\section{Background of the Study}
+In the modern digital era, social media platforms process billions of user interactions daily. The core engine driving user retention and engagement on these platforms is the content discovery and feed recommendation system. Traditionally, building these systems required heavy, monolithic architectures. However, as demonstrated by industry leaders like X (formerly Twitter), modern user feeds require sub-millisecond latency, high-concurrency handling, and sophisticated machine learning models to analyze sparse user-item interaction data dynamically.
+
+\section{Problem Statement}
+Traditional recommendation architectures relying on standard frameworks (e.g., Python/Flask combined with basic Matrix Factorization and Elasticsearch) struggle to scale under high-concurrency social media environments. These legacy systems suffer from high latency during candidate generation, inefficient handling of simultaneous feed requests, and difficulty in dynamically adapting to new user preferences without manual model retraining. Furthermore, frontend state management often lags, creating a disjointed user experience during high-frequency interactions like ``Liking'' or ``Reposting.''
+
+\section{Aims and Objectives}
+The primary aim of this project is to design and develop a highly scalable, full-stack social media content discovery system using industry-aligned architecture. The specific objectives include:
+\begin{enumerate}
+    \item To develop a high-performance backend API gateway using Go (Gin) to process concurrent user interactions efficiently.
+    \item To implement an AutoML-based recommendation engine (Gorse) utilizing Factorization Machines (FM) and Bayesian Personalized Ranking (BPR).
+    \item To achieve sub-50ms latency in candidate generation by deploying Typesense for Vector Search using Approximate Nearest Neighbor (HNSW) algorithms.
+    \item To optimize the user experience through a monorepo setup (Next.js and React Native) featuring optimistic UI updates via RTK Query.
+\end{enumerate}
+
+\section{Significance of the Study}
+This research bridges the gap between academic recommendation theories and modern industry practices. By aligning our tech stack with methodologies similar to open-source algorithms, this project demonstrates how modern startups and platforms can achieve enterprise-grade feed ranking without massive hardware costs. It provides a blueprint for scalable, real-time social media applications.
+
+\section{Scope and Limitations}
+The project focuses on the backend recommendation pipeline, candidate generation, and cross-platform frontend consumption. Machine learning models will be trained and evaluated using public datasets, specifically the RecSys Challenge 2020 Twitter Dataset \cite{recsys2020} and Stanford SNAP Twitter Network \cite{snap2014}. The system is limited to text and metadata analysis; deep video/image pixel analysis falls outside the current scope.

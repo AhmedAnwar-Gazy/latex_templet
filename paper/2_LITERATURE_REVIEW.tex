@@ -1,0 +1,12 @@
+% ==================== CHAPTER 2 ====================
+\chapter{LITERATURE REVIEW}
+\clearpage
+
+\section{Foundational Recommender Systems and Mathematical Models}
+The theoretical foundation of this project is rooted in extensive academic literature. As outlined in \cite{ricci2022}, recommendation systems have evolved from basic collaborative filtering to complex, hybrid neural network architectures. Crucially, the literature establishes that modern systems must be evaluated in a multi-stakeholder paradigm, balancing platform constraints against diversity, novelty, and equitable content exposure, rather than strictly optimizing for mathematical accuracy. To understand the mathematical proofs underlying the Matrix Factorization models used in the system, Aggarwal's methodology \cite{aggarwal2016} was utilized, which thoroughly details the decomposition of User-Item interaction matrices to discover latent patterns.
+
+\section{Transition to Modern AI and Practical Implementations}
+While academic textbooks provide the math, implementing these systems requires modern tooling. Falk's work \cite{falk2019} provided the framework for the user behavior data collection and ingestion strategies. Furthermore, recent advancements \cite{aliev2026} were heavily referenced, which bridges the gap between classic models and modern AI, including the use of LLMs as feature extractors---a concept adapted by evaluating BERT/RoBERTa for generating contextual embeddings for Typesense. Additionally, the curated research paper repository \cite{zhang-rspapers} and seminal papers---such as Covington et al.\ \cite{covington2016} for deep learning architectures and Portugal et al.\ \cite{portugal2015} for systematic ML algorithm clustering---were analyzed to understand the transition toward deep learning-based recommendation loops.
+
+\section{Industry Benchmark: The X (Twitter) Algorithm}
+To ensure industry alignment, this project analyzed the officially open-sourced X Recommendation Algorithm. Professional-grade platforms utilize a pipeline involving a ``Heavy Ranker'', Graph Feature Services, and SimClusters. The developed architecture replicates this flow on a leaner scale by replacing heavy Scala/Hadoop clusters with Go and Gorse, while maintaining the crucial two-step process: (1) Candidate Generation and (2) Core ML Ranking.
