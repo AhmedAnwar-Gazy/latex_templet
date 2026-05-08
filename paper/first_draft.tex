@@ -1,0 +1,242 @@
+\documentclass[12pt,a4paper]{report}
+
+% ============================================================
+%  IEEE-Compliant FYP Report
+%  Formatting per Project_Guidelines.pdf & latex-ieee-formatting skill
+% ============================================================
+
+% --- Packages ---
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguage{arabic}
+\newfontfamily\arabicfont[Script=Arabic]{Arial}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta, backgrounds, fit, calc}
+\usepackage[left=1.5in,top=1in,bottom=1in,right=1in]{geometry} % 1.5in binding margin
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}       % For ML formulas
+\usepackage{graphicx}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage{parskip}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage[backend=biber]{biblatex} % For citations
+\usepackage{minted}                 % For your Go/Laravel code snippets
+\usepackage{neuralnetwork}
+
+% --- Settings ---
+\doublespacing
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% Chapter title formatting: CHAPTER X prefix, centered, bold
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\centering}
+  {CHAPTER \thechapter}{0pt}{\Huge}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% ============================================================
+\begin{document}
+
+% ==============================
+%  PART 1: FRONT MATTER
+%  Roman numeral page numbering
+% ==============================
+\pagenumbering{roman}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+
+% -------------------- TITLE PAGE --------------------
+\input{0_TITLE.tex}
+
+% -------------------- DECLARATION --------------------
+\chapter*{DECLARATION}
+
+We, the undersigned students of the College of Engineering and Information Technology at Taiz University, hereby declare that the project entitled ``Developing a Social Media Platform Utilizing Advanced Recommendation Algorithms'' is our original work.
+
+To the best of our knowledge, this document does not contain any material previously published or written by another person, nor material which has been accepted for the award of any other degree or diploma at this university or any other educational institution, except where due reference and citations are made in the text. We acknowledge the use of open-source frameworks and public datasets (such as the RecSys 2020 Twitter Dataset \cite{recsys2020} and Stanford SNAP \cite{snap2014}) under their respective licenses, which have been fully documented within the report.
+
+% -------------------- APPROVAL PAGE --------------------
+\chapter*{APPROVAL PAGE}
+
+This Final Year Project entitled ``Developing a Social Media Platform Utilizing Advanced Recommendation Algorithms'' has been examined and approved in partial fulfillment of the requirements for the Degree of Bachelor of Science in Software Engineering.
+
+\vspace{1.5cm}
+
+\noindent\textbf{Project Supervisor:}\\
+\noindent\rule{8cm}{0.4pt}\\
+Dr.\ Ziad Al-Rabih\\
+Date: \rule{4cm}{0.4pt}
+
+\vspace{0.75cm}
+
+\noindent\textbf{Internal Examiner:}\\
+\noindent\rule{8cm}{0.4pt}\\
+Name: \rule{5cm}{0.4pt}\\
+Date: \rule{4cm}{0.4pt}
+
+\vspace{0.75cm}
+
+\noindent\textbf{Head of Department:}\\
+\noindent\rule{8cm}{0.4pt}\\
+Name: \rule{5cm}{0.4pt}\\
+Date: \rule{4cm}{0.4pt}
+
+% -------------------- DEDICATION --------------------
+\chapter*{DEDICATION}
+
+We dedicate this project to our families, whose endless support, patience, and encouragement made our academic journey possible. We also dedicate this work to our professors and the broader open-source software community, whose foundational tools and shared knowledge inspired our innovations. Finally, we dedicate this to our beloved country, Yemen, with hopes of contributing to its technological advancement and brighter future.
+
+% -------------------- ACKNOWLEDGEMENTS --------------------
+\chapter*{ACKNOWLEDGEMENTS}
+
+First and foremost, we thank Almighty God for granting us the strength, health, and wisdom to successfully complete this project.
+
+We would like to express our deepest gratitude to our project supervisor, Dr.\ Ziad Al-Rabih, for their invaluable guidance, constructive feedback, and continuous support throughout the development of this research.
+
+We also extend our sincere appreciation to the faculty members of the College of Engineering and Information Technology at Taiz University for equipping us with the fundamental knowledge required to undertake a project of this technical scale.
+
+Finally, we wish to acknowledge the open-source community---specifically the maintainers of Go, Gorse, Typesense, Next.js, and the providers of the X (Twitter) Recommendation Algorithm datasets. Their commitment to transparent, accessible technology provided the core foundation upon which our system architecture was built.
+
+
+% -------------------- ARABIC ABSTRACT --------------------
+\chapter*{\textarabic{الملخص}}
+
+\begin{Arabic}
+\begingroup
+\fontsize{11pt}{13.2pt}\selectfont
+تتطلب منصات التواصل الاجتماعي الحديثة أنظمة قوية لاكتشاف المحتوى في الوقت الفعلي، قادرة على معالجة ملايين التفاعلات بزمن استجابة يقل عن أجزاء من الألف من الثانية. غالباً ما تواجه البنى التحتية التقليدية للواجهات الخلفية صعوبة في الموازنة بين متطلبات التزامن العالي والعبء الحسابي لخوارزميات ترتيب التعلم الآلي المعقدة. يقترح هذا المشروع وينفذ بنية تحتية متكاملة عالية القابلية للتوسع لاكتشاف محتوى وسائل التواصل الاجتماعي وتوليد موجز المستخدم، بحيث تحاكي بشكل وثيق النظم المتوافقة مع معايير الصناعة المستخدمة من قبل منصات مثل إكس (تويتر سابقاً).
+
+يدمج النظام المطور بوابة واجهة برمجة تطبيقات عالية الأداء مكتوبة بلغة Go للتعامل مع الطلبات المتزامنة الهائلة. ولمعالجة دقة التوصيات وتوليد المرشحين، تم نشر محرك Gorse --- وهو محرك توصيات يعتمد على التعلم الآلي المؤتمت ويستخدم آلات التحليل العواملي والترتيب الشخصي البايزي --- مدعوماً بقاعدة بيانات Redis للتخزين المؤقت منخفض الاستجابة للجلسات. أما بالنسبة للسياق الدلالي والترشيح الأولي للمرشحين، فقد تم استخدام Typesense كقاعدة بيانات للبحث المتجهي، مع تطبيق خوارزميات الجار الأقرب التقريبي لاسترجاع المحتوى ذي الصلة في أقل من 50 مللي ثانية. كما تم تحسين تجربة المستخدم من خلال إعداد مستودع أحادي يستخدم Next.js للويب و React Native للهواتف المحمولة، مع الاعتماد بشكل كبير على RTK Query لتسهيل تحديثات واجهة المستخدم المتفائلة التي توفر استجابة شبه فورية.
+
+تم تدريب نماذج التعلم الآلي الأساسية وتقييمها باستخدام مجموعات بيانات عامة واسعة النطاق، بما في ذلك شبكة تويتر Stanford SNAP للعلاقات البيانية ومجموعة بيانات تويتر RecSys 2020 لمقاييس التفاعل، إلى جانب تضمينات BERT/RoBERTa لسياق معالجة اللغات الطبيعية. ويوضح التحليل المقارن مع الحزم التكنولوجية التقليدية أن البنية المعتمدة على Go/Gorse تحسن بشكل كبير من التعامل مع الطلبات المتزامنة، وتؤتمت اختيار النماذج بكفاءة، وتحافظ على زمن استجابة مثالي للبحث، مما يوفر في النهاية نظاماً بيئياً سلساً في الوقت الفعلي.
+\par\endgroup
+\end{Arabic}
+
+
+% -------------------- ABSTRACT --------------------
+\chapter*{ABSTRACT}
+
+\begingroup
+\fontsize{11pt}{13.2pt}\selectfont
+Modern social media platforms require robust, real-time content discovery systems capable of handling millions of interactions with sub-millisecond latency. Traditional backend architectures often struggle to balance high-concurrency requirements with the computational overhead of complex machine learning (ML) ranking algorithms. This project proposes and implements a highly scalable, full-stack architecture for social media content discovery and user feed generation, closely mirroring industry-standard pipelines utilized by platforms like X (formerly Twitter).
+
+The developed system integrates a high-performance API Gateway written in Go (Gin) to handle massive concurrent requests. To address recommendation accuracy and candidate generation, Gorse---an AutoML-based recommendation engine utilizing Factorization Machines (FM) and Bayesian Personalized Ranking (BPR)---was deployed, backed by Redis for low-latency session caching. For semantic context and initial candidate filtering, Typesense was utilized as a Vector Search database, implementing Approximate Nearest Neighbor (ANN) algorithms to retrieve relevant content in under 50 milliseconds. The user experience was optimized through a monorepo setup utilizing Next.js (Server Components) for the web and React Native for mobile, heavily leveraging RTK Query to facilitate ``optimistic'' UI updates that yield near-instantaneous interaction feedback.
+
+The underlying ML models were trained and evaluated using large-scale public datasets, including the Stanford SNAP Twitter Network for graph relationships and the RecSys 2020 Twitter Dataset for interaction metrics, alongside BERT/RoBERTa embeddings for Natural Language Processing context. Comparative analysis against traditional stacks (e.g., Python/Flask and Elasticsearch) demonstrates that the Go/Gorse-based architecture significantly improves concurrent request handling, automates model selection efficiently, and maintains optimal search latency, ultimately providing a seamless, real-time feed ecosystem.
+\par\endgroup
+
+% -------------------- TOC / LOF / LOT --------------------
+\listoftables
+\listoffigures
+\tableofcontents
+
+% -------------------- LIST OF ABBREVIATIONS --------------------
+\chapter*{List of Abbreviations}
+
+\begin{tabular}{@{}ll@{}}
+\textbf{ANN}   & Approximate Nearest Neighbor \\
+\textbf{API}   & Application Programming Interface \\
+\textbf{BPR}   & Bayesian Personalized Ranking \\
+\textbf{CF}    & Collaborative Filtering \\
+\textbf{CTR}   & Click-Through Rate \\
+\textbf{FM}    & Factorization Machines \\
+\textbf{GNN}   & Graph Neural Network \\
+\textbf{HNSW}  & Hierarchical Navigable Small World \\
+\textbf{LLM}   & Large Language Model \\
+\textbf{MF}    & Matrix Factorization \\
+\textbf{ML}    & Machine Learning \\
+\textbf{MSE}   & Mean Squared Error \\
+\textbf{NLP}   & Natural Language Processing \\
+\textbf{RMSE}  & Root Mean Squared Error \\
+\textbf{RTK}   & Redux Toolkit \\
+\textbf{SEO}   & Search Engine Optimization \\
+\textbf{SGD}   & Stochastic Gradient Descent \\
+\textbf{SNAP}  & Stanford Network Analysis Project \\
+\textbf{SVD}   & Singular Value Decomposition \\
+\textbf{UI/UX} & User Interface / User Experience \\
+\end{tabular}
+
+% -------------------- GLOSSARY --------------------
+\chapter*{Glossary}
+
+\begin{description}
+\item[Application Programming Interface (API)] A set of rules and protocols that allows different software applications to communicate with each other, serving as the intermediary between the frontend and the backend.
+
+\item[Approximate Nearest Neighbor (ANN)] A class of algorithms used in vector databases (like Typesense) to efficiently retrieve the most similar data points in high-dimensional spaces without comparing every single point.
+
+\item[Bayesian Personalized Ranking (BPR)] A machine learning algorithm and loss function used in recommendation systems to optimize the personalized ranking of items by comparing pairs of items rather than predicting an exact score.
+
+\item[Click-Through Rate (CTR)] A metric measuring the percentage of users who click on a recommended item out of the total number of users who were exposed to it.
+
+\item[Cold-Start Problem] A common challenge in recommendation engines where the system cannot accurately draw inferences for new users or new items due to a lack of historical interaction data.
+
+\item[Collaborative Filtering (CF)] A fundamental recommendation technique that predicts a user's preferences by identifying patterns and similarities in behavior among a larger group of users.
+
+\item[Factorization Machines (FM)] A predictive mathematical model that captures interactions between variables, especially highly effective in sparse datasets typically found in recommendation systems.
+
+\item[Graph Neural Network (GNN)] A class of deep learning methods designed to perform inference on data described by graphs, useful for modeling complex social network relationships.
+
+\item[Gray Sheep Anomaly] A scenario where a user possesses highly unique or disjointed preferences that do not align with any broad demographic or cluster, making collaborative filtering difficult.
+
+\item[Hierarchical Navigable Small World (HNSW)] A state-of-the-art graph-based algorithm used for fast approximate nearest neighbor search in vector databases.
+
+\item[Large Language Model (LLM)] Advanced AI models trained on vast amounts of text data, capable of understanding and generating human language, often used to generate text embeddings for content.
+
+\item[Latent Factor Models] Machine learning models that attempt to discover hidden, unobserved variables (latent factors) from observed data, such as mapping users and items into a shared hidden geometric space to find similarities.
+
+\item[Machine Learning (ML)] A subset of artificial intelligence that involves training algorithms to learn patterns from data and make predictions or decisions without being explicitly programmed.
+
+\item[Matrix Factorization (MF)] A mathematical technique used to decompose a large, sparse user-item interaction matrix into smaller dimensional matrices, uncovering latent relationships between users and content.
+
+\item[Mean Squared Error (MSE)] A common loss function in machine learning that measures the average squared difference between the estimated values and the actual value.
+
+\item[Natural Language Processing (NLP)] A branch of artificial intelligence concerned with giving computers the ability to understand text and spoken words in much the same way human beings can.
+
+\item[Optimistic UI] A user interface pattern (implemented via RTK Query) that immediately updates the screen following a user action, temporarily assuming the backend request will succeed, to provide a fast and seamless user experience.
+
+\item[Redux Toolkit (RTK)] The official, opinionated toolset for efficient state management in React applications, often used alongside RTK Query for data fetching and optimistic UI updates.
+
+\item[Root Mean Squared Error (RMSE)] A standard metric to measure the error of a model in predicting quantitative data, derived by taking the square root of the Mean Squared Error.
+
+\item[Search Engine Optimization (SEO)] The practice of optimizing a website or application to improve its visibility and ranking in web search engine results.
+
+\item[Singular Value Decomposition (SVD)] A mathematical method in linear algebra used to factorize a matrix, forming the mathematical foundation for many matrix factorization-based recommendation algorithms.
+
+\item[Stanford Network Analysis Project (SNAP)] A widely used collection of large network datasets, including social graphs, provided by Stanford University for research purposes.
+
+\item[Stochastic Gradient Descent (SGD)] An iterative optimization algorithm used in machine learning to find the model parameters that minimize the error (loss) function.
+
+\item[User Interface / User Experience (UI/UX)] UI refers to the visual elements through which a user interacts with an application, while UX encompasses the overall experience and efficiency of a user interacting with the system.
+
+\item[Vector Search] A modern search method that represents text, images, or audio as numerical vectors and retrieves results based on semantic mathematical proximity rather than exact keyword matches.
+\end{description}
+
+% ============================================================
+%  PART 2: MAIN BODY
+%  Arabic numeral page numbering
+% ============================================================
+\pagenumbering{arabic}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+
+% Include all chapters
+\input{1_INTRODUCTION}
+\input{2_LITERATURE_REVIEW}
+\input{3_METHODOLOGY_SYSTEM_ARCHITECTURE}
+\input{4_IMPLEMENTATION}
+\input{5_CONCLUSION}
+\input{6_REFERENCES}
+
+\end{document}

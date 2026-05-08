@@ -1,0 +1,33 @@
+\xpg@aux {}{english}
+\xpg@aux {}{arabic}
+\xpg@aux {}{english}
+\contentsline {chapter}{\numberline {1}INTRODUCTION}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Background of the Study}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Problem Statement}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Aims and Objectives}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Significance of the Study}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Scope and Limitations}{4}{section.1.5}%
+\contentsline {chapter}{\numberline {2}LITERATURE REVIEW}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Foundational Recommender Systems and Mathematical Models}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Transition to Modern AI and Practical Implementations}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Industry Benchmark: The X (Twitter) Algorithm}{7}{section.2.3}%
+\contentsline {chapter}{\numberline {3}METHODOLOGY AND SYSTEM ARCHITECTURE}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The Full-Stack Architecture Design}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Algorithm Selection and Integration}{9}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Core ML Algorithms}{9}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Candidate Generation}{12}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Data Collection, NLP Context, and Model Training Materials}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}System Flow and Recommendation Pipeline}{13}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Data Ingestion and Telemetry Architecture}{13}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}The Offline Training Pipeline (Latent Factorization)}{14}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}The Online Retrieval Pipeline}{15}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}IMPLEMENTATION, RESULTS, AND DISCUSSION}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Architectural Performance Evaluation}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}User Experience (UX) and State Management}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Discussion and Defense of Stack (Industry Alignment)}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Multi-Stakeholder Value and Algorithmic Diversity}{19}{section.4.4}%
+\contentsline {chapter}{\numberline {5}CONCLUSION AND RECOMMENDATIONS}{20}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Summary of Findings}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Conclusion}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Recommendations and Future Work}{21}{section.5.3}%
+\contentsline {chapter}{Bibliography}{23}{chapter*.20}%
